@@ -3,14 +3,13 @@ import sys
 
 URL_BASE_GIT = "https://github.com/"
 EXTENSION_GIT_REPO = ".git"
-PATH_LOCAL_TO_CLONE = "/Users/caiosalgado/Desktop/git_projects/{}"
 
 
-def clone_repositories(list_repository_names, path_to_clone):
+def clone_repositories(list_repository_names, path_local):
     print("Cloning repositories in {}".format(list_repository_names))
     for repository_name in list_repository_names:
         path_clone = "{}{}{}".format(URL_BASE_GIT, repository_name, EXTENSION_GIT_REPO)
-        git_repo = git.Repo.clone_from(path_clone, path_to_clone.format(repository_name))
+        git_repo = git.Repo.clone_from(path_clone, path_local.format(repository_name))
         print(path_clone)
         print(git_repo.branches)
 
